@@ -39,6 +39,9 @@ select floor(avg(length)%60) from sakila.film;
 select concat(floor(avg(length)/60), ':', floor(avg(length)%60)) as "Average movie duration" from sakila.film;
 select concat(floor(avg(length)/60), 'H', floor(avg(length)%60), 'm') as "Average movie duration" from sakila.film;
 
+select date_format(sec_to_TIme(avg(length) * 60), "%H:%i") as "Average movie duration" from sakila.film;
+
+
 -- 9. How many movies longer than 3 hours?
 select count(film_id) as "Number of movies longer than 3 hours" from sakila.film
 where length > 3*60;
